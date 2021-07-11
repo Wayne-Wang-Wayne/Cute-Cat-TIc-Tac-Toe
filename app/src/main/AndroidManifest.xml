@@ -9,7 +9,7 @@
         android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.Tictoe">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.wayne.tictoe.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,4 +1,4 @@
-package com.example.tictoe;
+package com.wayne.tictoe;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.tictoe.R;
 
 import java.util.ArrayList;
 import java.util.List;
