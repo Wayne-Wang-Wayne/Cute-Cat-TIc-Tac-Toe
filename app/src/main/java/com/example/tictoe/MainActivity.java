@@ -48,6 +48,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        TextView whiteCat = findViewById(R.id.textViewP1);
+        TextView blackCat = findViewById(R.id.textViewP2);
+        TextView round = findViewById(R.id.textViewP3);
+
+        whiteCat.setText(getString(R.string.prefix_white_cat) + whiteWin);
+        blackCat.setText(getString(R.string.prefix_black_cat) + blackWin);
+        round.setText(getString(R.string.round_string, countRound));
+
 
         //各個格子的狀態 null=沒有,0=黑貓,1=另一隻貓
         for (int i = 0; i < 9; i++) {
@@ -72,14 +80,13 @@ public class MainActivity extends AppCompatActivity {
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TextView round = findViewById(R.id.textViewP3);
                 for (int i = 0; i < imageViews.size(); i++) {
                     space.set(i, NOTHING);
                     imageViews.get(i).setImageDrawable(null);
                 }
                 gameSet = false;
                 countRound++;
-                round.setText("第 " + countRound + " 局");
+                round.setText(getString(R.string.round_string, countRound));
             }
         });
 
@@ -113,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
             checkWinner();
             oTurn = !oTurn;
         } else {
-            Toast.makeText(this, "請點擊別處！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.please_click_the_right_area), Toast.LENGTH_SHORT).show();
         }
 
 
@@ -128,15 +135,15 @@ public class MainActivity extends AppCompatActivity {
         for (int[] indices : winningIndices) {
             if (space.get(indices[0]) != NOTHING && space.get(indices[0]).equals(space.get(indices[1])) && space.get(indices[1]).equals(space.get(indices[2]))) {
                 if (oTurn) {
-                    Toast.makeText(this, "白貓贏了", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.white_cat_winning), Toast.LENGTH_SHORT).show();
                     whiteWin++;
-                    whiteCat.setText("白貓：" + whiteWin);
+                    whiteCat.setText(getString(R.string.prefix_white_cat) + whiteWin);
                     gameSet = true;
                     break;
                 } else {
-                    Toast.makeText(this, "黑貓贏了", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.black_cat_winning), Toast.LENGTH_SHORT).show();
                     blackWin++;
-                    blackCat.setText("黑貓：" + blackWin);
+                    blackCat.setText(getString(R.string.prefix_black_cat) + blackWin);
                     gameSet = true;
                     break;
                 }
@@ -155,10 +162,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
-                if(wrapper.value == RIGHT){
+                if (wrapper.value == RIGHT) {
                     imageView.animate().rotation(-45).setDuration(500);
                     wrapper.value = LEFT;
-                } else if(wrapper.value == LEFT)
+                } else if (wrapper.value == LEFT)
                     imageView.animate().rotation(0).setDuration(500);
 
             }
@@ -167,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
 
 }
 
-class Wrapper<T>{
+class Wrapper<T> {
     T value;
 }
 

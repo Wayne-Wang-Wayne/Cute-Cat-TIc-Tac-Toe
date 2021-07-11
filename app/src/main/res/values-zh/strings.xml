@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">可愛貓咪圈叉</string>
+    <string name="white_cat_winning">白貓贏了</string>
+    <string name="prefix_white_cat">白貓：</string>
+    <string name="black_cat_winning">黑貓贏了</string>
+    <string name="prefix_black_cat">黑貓：</string>
+    <string name="round_string">第 %d 局</string>
+    <string name="please_click_the_right_area">請點擊別處！</string>
+    <string name="reset">再來一局</string>
+
+</resources>

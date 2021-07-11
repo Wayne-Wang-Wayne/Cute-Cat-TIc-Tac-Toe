@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">Cute Cat TicToe</string>
+    <string name="app_name">Cute Cat TicTacToe</string>
+    <string name="white_cat_winning">White cat wins</string>
+    <string name="prefix_white_cat">White cat：</string>
+    <string name="black_cat_winning">Black cat wins</string>
+    <string name="prefix_black_cat">Black cat：</string>
+    <string name="round_string">Round %d</string>
+    <string name="please_click_the_right_area">Please click the correct area!</string>
+    <string name="reset">One more</string>
+
 </resources>
