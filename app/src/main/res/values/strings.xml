@@ -7,5 +7,7 @@
     <string name="round_string">Round %d</string>
     <string name="please_click_the_right_area">Please click the correct area!</string>
     <string name="reset">One more</string>
+    <string name="black_cat_go_first">Black first</string>
+    <string name="white_cat_go_first">White first</string>
 
 </resources>

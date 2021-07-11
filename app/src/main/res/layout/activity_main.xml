@@ -32,9 +32,19 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textViewP1"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="-22dp"
-            android:layout_marginRight="178dp"
-            android:text="第 1 局"
+            android:layout_marginTop="-3dp"
+            android:layout_marginRight="159dp"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textViewP4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewP1"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="-45dp"
+            android:layout_marginRight="170dp"
+            android:text="@string/white_cat_go_first"
             android:textSize="30sp" />
 
         <Button

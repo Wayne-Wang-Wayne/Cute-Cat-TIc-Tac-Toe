@@ -7,5 +7,7 @@
     <string name="round_string">第 %d 局</string>
     <string name="please_click_the_right_area">請點擊別處！</string>
     <string name="reset">再來一局</string>
+    <string name="black_cat_go_first">黑貓先手</string>
+    <string name="white_cat_go_first">白貓先手</string>
 
 </resources>

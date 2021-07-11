@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     boolean gameSet = false;
     boolean oTurn = true;
     int countRound = 1;
+    int whoFirst = 0;
     List<Integer> space = new ArrayList<>();
 
     static final int[][] winningIndices =
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         TextView whiteCat = findViewById(R.id.textViewP1);
         TextView blackCat = findViewById(R.id.textViewP2);
         TextView round = findViewById(R.id.textViewP3);
+        TextView whoGoFirst = findViewById(R.id.textViewP4);
 
         whiteCat.setText(getString(R.string.prefix_white_cat) + whiteWin);
         blackCat.setText(getString(R.string.prefix_black_cat) + blackWin);
@@ -86,7 +88,16 @@ public class MainActivity extends AppCompatActivity {
                 }
                 gameSet = false;
                 countRound++;
+                //誰先手
                 round.setText(getString(R.string.round_string, countRound));
+                if (whoFirst % 2 == 0) {
+                    oTurn = false;
+                    whoGoFirst.setText(R.string.black_cat_go_first);
+                } else if (whoFirst % 2 == 1) {
+                    oTurn = true;
+                    whoGoFirst.setText(R.string.white_cat_go_first);
+                }
+                whoFirst++;
             }
         });
 
