@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.tictoe.R;
 
 import java.util.ArrayList;
 import java.util.List;
