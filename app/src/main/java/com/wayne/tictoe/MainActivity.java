@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.media.MediaParser;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewPropertyAnimator;
@@ -119,14 +121,18 @@ public class MainActivity extends AppCompatActivity {
         //oTurn -> 誰在下
         //index -> 下在哪
         //imageView -> 哪一個imageView 要被 setImageResource
+        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.meowing);
+        MediaPlayer mediaPlayer2 = MediaPlayer.create(this, R.raw.meow2);
         if (oTurn && space.get(index) == NOTHING) {
             space.set(index, O_SYMBOL);
+            mediaPlayer.start();
             imageView.setImageResource(R.drawable.tictoe2);
             animation(imageView);
             checkWinner();
             oTurn = !oTurn;
         } else if (!oTurn && space.get(index) == NOTHING) {
             space.set(index, X_SYMBOL);
+            mediaPlayer2.start();
             imageView.setImageResource(R.drawable.tictoe3);
             animation(imageView);
             checkWinner();
