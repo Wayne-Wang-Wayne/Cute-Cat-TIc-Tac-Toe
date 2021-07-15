@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     static final int O_SYMBOL = 0;
     static final int X_SYMBOL = 1;
     static final int NOTHING = 2;
+    MediaPlayer mediaPlayer;
+    MediaPlayer mediaPlayer2;
 
     static final int RIGHT = 0;
     static final int LEFT = 1;
@@ -48,9 +51,18 @@ public class MainActivity extends AppCompatActivity {
             };
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mediaPlayer.release();
+        mediaPlayer2.release();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mediaPlayer = MediaPlayer.create(this, R.raw.meowing);
+        mediaPlayer2 = MediaPlayer.create(this, R.raw.meow2);
 
         TextView whiteCat = findViewById(R.id.textViewP1);
         TextView blackCat = findViewById(R.id.textViewP2);
@@ -110,21 +122,27 @@ public class MainActivity extends AppCompatActivity {
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (!gameSet)
-                        onImageClick(imageView, index);
+                    if (!gameSet) {
+                        try {
+                            onImageClick(imageView, index);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
                 }
             });
         }
     }
 
-    private void onImageClick(ImageView imageView, int index) {
+    private void onImageClick(ImageView imageView, int index) throws IOException {
         //oTurn -> 誰在下
         //index -> 下在哪
         //imageView -> 哪一個imageView 要被 setImageResource
-        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.meowing);
-        MediaPlayer mediaPlayer2 = MediaPlayer.create(this, R.raw.meow2);
+
         if (oTurn && space.get(index) == NOTHING) {
             space.set(index, O_SYMBOL);
+            mediaPlayer.stop();
+            mediaPlayer.prepare();
             mediaPlayer.start();
             imageView.setImageResource(R.drawable.tictoe2);
             animation(imageView);
@@ -132,6 +150,8 @@ public class MainActivity extends AppCompatActivity {
             oTurn = !oTurn;
         } else if (!oTurn && space.get(index) == NOTHING) {
             space.set(index, X_SYMBOL);
+            mediaPlayer2.stop();
+            mediaPlayer2.prepare();
             mediaPlayer2.start();
             imageView.setImageResource(R.drawable.tictoe3);
             animation(imageView);

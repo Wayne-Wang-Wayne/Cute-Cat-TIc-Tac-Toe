@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="白貓 :0"
-            android:textSize="30sp" />
+            android:textSize="@dimen/title_size" />
 
         <TextView
             android:id="@+id/textViewP2"
@@ -24,28 +24,25 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textViewP1"
             android:text="黑貓 :0"
-            android:textSize="30sp" />
+            android:textSize="@dimen/title_size" />
 
         <TextView
             android:id="@+id/textViewP3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewP1"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="-3dp"
-            android:layout_marginRight="159dp"
-            android:textSize="30sp" />
+            android:layout_below="@+id/textViewP4"
+            android:layout_toLeftOf="@id/buttonReset"
+            android:paddingEnd="15dp"
+            android:textSize="@dimen/title_size" />
 
         <TextView
             android:id="@+id/textViewP4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewP1"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="-45dp"
-            android:layout_marginRight="170dp"
+            android:layout_toLeftOf="@id/buttonReset"
             android:text="@string/white_cat_go_first"
-            android:textSize="30sp" />
+            android:layout_marginRight="15dp"
+            android:textSize="@dimen/title_size" />
 
         <Button
             android:id="@+id/buttonReset"
